@@ -1,0 +1,28 @@
+Inventory Control Code
+
+BrowseGallery1*
+SortByColumns(Filter([@'QSC Lab Inventory Control'], StartsWith(Item.Value, TextSearchBox1.Text)), "Title", If(SortDescending1, SortOrder.Descending, SortOrder.Ascending))
+
+IconNewItem*
+NewForm(EditForm1);Navigate(EditScreen1, ScreenTransition.None)
+
+IconSortUpDown*
+UpdateContext({SortDescending1: !SortDescending1})
+
+IconRefresh1*
+Refresh([@'QSC Lab Inventory Control'])
+
+IconDelete1*
+Remove([@'QSC Lab Inventory Control'], BrowseGallery1.Selected); If (IsEmpty(Errors([@'QSC Lab Inventory Control'], BrowseGallery1.Selected)), Back())
+
+IconEdit1*
+EditForm(EditForm1);Navigate(EditScreen1, ScreenTransition.None)
+
+IconBackarrow1*
+Navigate(BrowseScreen1, ScreenTransition.None)
+
+IconAccept1*
+SubmitForm(EditForm1)
+
+IconCancel1*
+ResetForm(EditForm1);Back()
